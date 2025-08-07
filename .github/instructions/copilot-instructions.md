@@ -3,7 +3,7 @@ applyTo: '**'
 ---
 # Copilot Instructions
 
-    This project is a risk assistant/manager application that performs qualitative and quantitative risk analysis using Monte Carlo simulations, and based on the results, it generates risk mitigation plans. The Agent responds to risk-related queries and provides insights based on the data and the Monte Carlo simulations.
+    This project is a risk assistant/manager application that performs qualitative and quantitative risk analysis using Monte Carlo simulations, and based on the results, it generates risk mitigation plans. The Agent responds to risk-related queries and provides insights based on the data and the Monte Carlo simulations. This agent responds to a MAIN agent that manaages the overall project management and communication with the user. The MAINT agent communicates with the RISK agent through a (to be implemented) API agent/chat endpoint. The RISK agent is responsible for managing risk data, performing simulations, and consolidating results. It is powered by Gemini AI 2.5 llm models.
 
 ## Coding Guidelines
 
