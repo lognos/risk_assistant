@@ -1,3 +1,6 @@
+---
+applyTo: '**'
+---
 # Copilot Instructions
 
     This project is a risk assistant/manager application that performs qualitative and quantitative risk analysis using Monte Carlo simulations, and based on the results, it generates risk mitigation plans. The Agent responds to risk-related queries and provides insights based on the data and the Monte Carlo simulations.
@@ -5,7 +8,7 @@
 ## Coding Guidelines
 
 
-    When asked to perform database reviews or operations, use MCP for supabase project id kxwradnyjqobvdheklsn.
+    IMPORTANT:When asked to perform database reviews or operations, use MCP for supabase project id kxwradnyjqobvdheklsn.
     When testing an app or part of it, prioritize activating venv and uploading the environment variables file.
 
     When asked to do a review of a codebase, focus on doing the review only: DO NOT IMPLEMENT CHANGES UNLESS EXPLICITLY REQUESTED.
