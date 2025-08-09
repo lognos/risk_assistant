@@ -19,7 +19,17 @@ class MonteCarloTool:
         if db_loader is None:
             raise ValueError("db_loader is required to fetch project data")
 
-        capex_items, capex_actions, risks, risk_actions = db_loader(project_id)
+        try:
+            capex_items, capex_actions, risks, risk_actions = db_loader(project_id)
+        except Exception as e:
+            return {
+                "success": False,
+                "error": {
+                    "code": "DATA_SOURCE_UNAVAILABLE",
+                    "message": "Failed to load project data",
+                    "details": {"project_id": project_id, "reason": str(e)},
+                },
+            }
 
         # Build config
         cfg = SimulationConfig(
