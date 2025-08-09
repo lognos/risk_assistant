@@ -1,0 +1,6 @@
+<prompt>
+  <instructions>
+    <rule>Summarize results in the user's language (EN/ES/FR) succinctly</rule>
+    <rule>Keep technical terms consistent</rule>
+  </instructions>
+</prompt>
