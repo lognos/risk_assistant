@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import Dict, Any, Optional
+from typing import Dict, Any, Optional, Union
 from datetime import datetime
 import pandas as pd
 
@@ -13,7 +13,7 @@ class MonteCarloTool:
     def __init__(self):
         pass
 
-    def run(self, *, project_id: int, data_date: Optional[str] = None, duration_months: int = 12,
+    def run(self, *, project_id: Union[str, int], data_date: Optional[str] = None,
             iterations: int = 10000, enable_correlation: bool = True, db_loader=None) -> Dict[str, Any]:
         # Load data from DB via provided loader callback to avoid direct coupling here
         if db_loader is None:
@@ -35,7 +35,7 @@ class MonteCarloTool:
         cfg = SimulationConfig(
             data_date=datetime.fromisoformat(data_date) if data_date else datetime.utcnow(),
             frequency="W",
-            periods=max(4, int(duration_months * 4)),
+            periods=None,  # Horizon determined by action due dates + buffer inside the engine
             n_simulations=min(max(iterations, 100), 50000),
             enable_correlation=enable_correlation,
         )
@@ -56,8 +56,14 @@ class MonteCarloTool:
                 "success": False,
                 "error": {
                     "code": "INSUFFICIENT_DATA",
-                    "message": "Simulation failed or returned no data"
-                }
+                    "message": "Simulation failed validation or returned no data",
+                    "details": {
+                        "capex_items": len(capex_items.index),
+                        "capex_actions": len(capex_actions.index),
+                        "risks": len(risks.index),
+                        "risk_actions": len(risk_actions.index),
+                    },
+                },
             }
 
         # Prepare compact summary

@@ -32,7 +32,6 @@ class RiskAgent:
                 "parameters": {
                     "project_id": context.get("project_id"),
                     "iterations": context.get("iterations", 10000),
-                    "duration_months": context.get("duration_months", settings.default_simulation_duration),
                     "enable_correlation": context.get("enable_correlation", True),
                     "data_date": context.get("data_date"),
                 }

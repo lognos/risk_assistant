@@ -6,7 +6,6 @@ MCP_TOOL_SCHEMAS = {
             "properties": {
                 "project_id": {"type": "integer", "description": "Project identifier"},
                 "data_date": {"type": "string", "description": "YYYY-MM-DD"},
-                "duration_months": {"type": "integer", "default": 12, "minimum": 1, "maximum": 60},
                 "iterations": {"type": "integer", "default": 10000, "minimum": 1000, "maximum": 50000},
                 "enable_correlation": {"type": "boolean", "default": True}
             },

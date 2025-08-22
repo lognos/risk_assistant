@@ -16,7 +16,6 @@ class Settings(BaseModel):
 
     # Tools
     monte_carlo_max_iterations: int = 50000
-    default_simulation_duration: int = 12
 
     # AI (placeholder for Gemini integration)
     gemini_model: str = "gemini-2.0-flash-exp"

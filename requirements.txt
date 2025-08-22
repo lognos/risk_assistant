@@ -26,6 +26,7 @@ toml==0.10.2
 
 # AI/ML dependencies
 google-generativeai==0.8.5
+mcp
 
 # Monte Carlo simulation dependencies
 numpy>=1.24.0
@@ -34,3 +35,5 @@ scipy>=1.10.0
 
 # Optional: For additional functionality
 # openpyxl==3.1.2  # If you need to read/write Excel files from SharePoint
+
+ 
